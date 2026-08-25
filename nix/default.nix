@@ -7,7 +7,7 @@ stdenv.mkDerivation {
   pname = "myctrl";
   version = "0.1.0";
 
-  src = ../..;
+  src = ./.;
 
   nativeBuildInputs = [
     cmake

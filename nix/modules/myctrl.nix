@@ -9,7 +9,7 @@ in
 
     package = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.myctrl;
+      default = pkgs.callPackage ./../default.nix {};
       description = "Package providing the myctrl binary.";
     };
   };
