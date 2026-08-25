@@ -1,0 +1,21 @@
+pkgname=myctrl
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="My control service"
+arch=('x86_64')
+url="https://example.invalid/myctrl"
+license=('MIT')
+depends=()
+makedepends=('cmake' 'gcc')
+source=("..")
+b2sums=('SKIP')
+
+build() {
+  cmake -S .. -B build -DCMAKE_BUILD_TYPE=Release
+  cmake --build build --parallel
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+  install -Dm644 ../arch/myctrl.service "$pkgdir/usr/lib/systemd/system/myctrl.service"
+}

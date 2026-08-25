@@ -1,0 +1,13 @@
+[Unit]
+Description=My control service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/myctrl
+Restart=always
+RestartSec=1s
+
+[Install]
+WantedBy=multi-user.target
