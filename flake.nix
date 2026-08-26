@@ -24,7 +24,7 @@
         };
       }
     ) // {
-      nixosModules.default = import ./nix/modules/myctrl.nix;
+      nixosModules.default = ./nix/modules/myctrl.nix;
       nixosModules.myctrl = self.nixosModules.default;
     };
 }
