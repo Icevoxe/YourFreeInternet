@@ -7,18 +7,14 @@ stdenv.mkDerivation {
   pname = "myctrl";
   version = "0.1.0";
 
-  src = ./.;
+  # Указываем корень всего репозитория (поднимаемся из папки nix на уровень вверх)
+  src = ./..; 
 
   nativeBuildInputs = [
     cmake
     pkg-config
   ];
 
-  cmakeFlags = [
-    "-DCMAKE_BUILD_TYPE=Release"
-  ];
-
-  installPhase = ''
-    cmake --install build --prefix $out
-  '';
+  # Убираем кастомные cmakeFlags и installPhase, так как стандартный 
+  # обработчик cmake в NixOS сделает всё сам идеально автоматически.
 }
